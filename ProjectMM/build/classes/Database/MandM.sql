@@ -18,7 +18,7 @@ CREATE TABLE agencias (
 	RazonS			VARCHAR(255)		NOT NULL,
 	CiudadL			VARCHAR(20)			NOT NULL,
 	DireccionAg		dom_direccion,
-	FechaEnc		dom_fechas
+	FechaEnc		DATE
 );
 ALTER TABLE agencias ADD CONSTRAINT PK_agencias_RIFAg PRIMARY KEY(RIFAg);
 ALTER TABLE agencias ADD CONSTRAINT UQ_agencias_RazonS UNIQUE (RazonS);
@@ -38,7 +38,7 @@ ON DELETE NO ACTION ON UPDATE CASCADE;
 ALTER TABLE empleados ADD CONSTRAINT CK_empleados_SueldoEmp CHECK(SueldoEmp>0);
 
 -------------Agregar la columna del encargado
-ALTER TABLE agencias ADD COLUMN CIEncargado dom_cedula;
+ALTER TABLE agencias ADD COLUMN CIEncargado INTEGER;
 ALTER TABLE agencias ADD CONSTRAINT FK_agencias_CIEncargado
 FOREIGN KEY (CIEncargado) REFERENCES empleados(CIEmp)
 ON DELETE NO ACTION ON UPDATE CASCADE;
@@ -258,3 +258,7 @@ ON DELETE NO ACTION ON UPDATE CASCADE;
 ALTER TABLE asignan ADD CONSTRAINT FK_asignan_CIEmp
 FOREIGN KEY (CIEmp) REFERENCES empleados(CIEmp)
 ON DELETE NO ACTION ON UPDATE CASCADE;
+
+
+
+
