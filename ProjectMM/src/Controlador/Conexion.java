@@ -7,19 +7,15 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
     private Connection conectado = null;
-    private final String jdbc = "jdbc:postgresql://ec2-52-45-183-77.compute-1.amazonaws.com:5432/";
+    private final String jdbc = "jdbc:postgresql://bomwkcx4qq4x36fdptvh-postgresql.services.clever-cloud.com/";
     public Connection conectar() {
         try {
             Class.forName("org.postgresql.Driver");
-            conectado = DriverManager.getConnection(jdbc+"daksvjpbapbe2p", "cnyqltrjluraol", "5da2f0b395221c56dcc757270dbd431507fd55ec76cc2d4d99a8e13b577d9512");
+            conectado = DriverManager.getConnection(jdbc+"bomwkcx4qq4x36fdptvh", "uivxvwoutflbwrvyc5jm", "t1PlcfIVbGp5U0AHxwkE");
             System.out.println("conexion exitosa");
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null,"error de conexion "+e.getMessage());
         }
         return conectado;
-    }
-    
-    public static void main(String[] argv) {
-
     }
 }

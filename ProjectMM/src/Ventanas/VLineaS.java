@@ -5,14 +5,19 @@
  */
 package Ventanas;
 
+import CRUD.Lineas;
+import Controlador.Conexion;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Noel Roberto
  */
 public class VLineaS extends javax.swing.JFrame {
+    Conexion connect = new Conexion();
+    Lineas db = new Lineas(connect.conectar());
 
     /**
      * Creates new form VLineaS
@@ -38,100 +43,159 @@ public class VLineaS extends javax.swing.JFrame {
         codText = new javax.swing.JTextField();
         desText = new javax.swing.JTextField();
         searchBotton = new javax.swing.JButton();
-        nuevoBotton = new javax.swing.JButton();
-        guardarBotton = new javax.swing.JButton();
-        actualizarBotton = new javax.swing.JButton();
-        eliminarBotton = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        Btn_Habilitar1 = new javax.swing.JButton();
+        Btn_Nuevo1 = new javax.swing.JButton();
+        Btn_Actuaizar1 = new javax.swing.JButton();
+        Btn_Eliminar1 = new javax.swing.JButton();
+        Btn_Limpiar1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(36, 204, 167));
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Lineas de Suministros");
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -1, 890, 60));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(36, 204, 167));
         jLabel2.setText("Codigo");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 105, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(36, 204, 167));
         jLabel3.setText("Descripcion");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 154, -1, -1));
 
+        codText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+        codText.setEnabled(false);
         codText.setName("Cod"); // NOI18N
         codText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codTextActionPerformed(evt);
             }
         });
+        getContentPane().add(codText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 107, 300, 30));
 
-        searchBotton.setText("jButton1");
-
-        nuevoBotton.setText("Nuevo");
-
-        guardarBotton.setText("Guardar");
-        guardarBotton.addActionListener(new java.awt.event.ActionListener() {
+        desText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+        desText.setEnabled(false);
+        desText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarBottonActionPerformed(evt);
+                desTextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(desText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 156, 430, 30));
+
+        searchBotton.setBackground(new java.awt.Color(255, 255, 255));
+        searchBotton.setForeground(new java.awt.Color(255, 255, 255));
+        searchBotton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/lupa(1).png"))); // NOI18N
+        searchBotton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        searchBotton.setEnabled(false);
+        searchBotton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBottonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchBotton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 120, 50));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2), "Opciones", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Helvetica", 1, 14), new java.awt.Color(36, 204, 167))); // NOI18N
+        jPanel4.setOpaque(false);
+
+        Btn_Habilitar1.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Habilitar1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Habilitar1.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Habilitar1.setText("Habilitar");
+        Btn_Habilitar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Habilitar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Habilitar1ActionPerformed(evt);
             }
         });
 
-        actualizarBotton.setText("Actualizar");
+        Btn_Nuevo1.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Nuevo1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Nuevo1.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Nuevo1.setText("Nuevo");
+        Btn_Nuevo1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Nuevo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Nuevo1ActionPerformed(evt);
+            }
+        });
 
-        eliminarBotton.setText("Eliminar");
+        Btn_Actuaizar1.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Actuaizar1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Actuaizar1.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Actuaizar1.setText("Actualizar");
+        Btn_Actuaizar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Actuaizar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Actuaizar1ActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(101, 101, 101)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(codText, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchBotton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(desText, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(nuevoBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(guardarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(actualizarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(eliminarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(162, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(codText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBotton))
+        Btn_Eliminar1.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Eliminar1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Eliminar1.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Eliminar1.setText("Eliminar");
+        Btn_Eliminar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Eliminar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Eliminar1ActionPerformed(evt);
+            }
+        });
+
+        Btn_Limpiar1.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Limpiar1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Limpiar1.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Limpiar1.setText("Limpiar");
+        Btn_Limpiar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Limpiar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Limpiar1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(Btn_Habilitar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(desText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(eliminarBotton)
-                    .addComponent(actualizarBotton)
-                    .addComponent(guardarBotton)
-                    .addComponent(nuevoBotton))
-                .addGap(34, 34, 34))
+                .addComponent(Btn_Nuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_Actuaizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_Eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_Limpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Btn_Habilitar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Nuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Actuaizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Limpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 200, 750, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,9 +204,61 @@ public class VLineaS extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_codTextActionPerformed
 
-    private void guardarBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBottonActionPerformed
+    private void Btn_Actuaizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Actuaizar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_guardarBottonActionPerformed
+        if ((!this.codText.getText().equals("")&&(!this.desText.getText().equals("")))) {
+            db.updateLinea(this.codText.getText(), this.desText.getText());
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_Btn_Actuaizar1ActionPerformed
+
+    private void desTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_desTextActionPerformed
+
+    private void Btn_Habilitar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Habilitar1ActionPerformed
+        this.codText.setEnabled(true);
+        this.desText.setEnabled(true);
+        this.searchBotton.setEnabled(true);
+    }//GEN-LAST:event_Btn_Habilitar1ActionPerformed
+
+    private void Btn_Limpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Limpiar1ActionPerformed
+        // TODO add your handling code here:
+        this.codText.setText("");
+        this.desText.setText("");
+    }//GEN-LAST:event_Btn_Limpiar1ActionPerformed
+
+    private void searchBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBottonActionPerformed
+        // TODO add your handling code here:
+        if (!this.codText.getText().equals("")) {
+            String nomb= db.buscarLinea(this.codText.getText());
+            this.desText.setText(nomb);
+            this.codText.setEnabled(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_searchBottonActionPerformed
+
+    private void Btn_Nuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Nuevo1ActionPerformed
+        // TODO add your handling code here:
+        if ((!this.codText.getText().equals("")&&(!this.desText.getText().equals("")))) {
+            db.agregarLinea(this.codText.getText(), this.desText.getText());
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_Btn_Nuevo1ActionPerformed
+
+    private void Btn_Eliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Eliminar1ActionPerformed
+        // TODO add your handling code here:
+        if (!this.codText.getText().equals("")) {
+            db.deleteLinea(this.codText.getText());
+            this.codText.setText("");
+            this.desText.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor rellene el campo faltante","Advertencia",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_Btn_Eliminar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,15 +296,18 @@ public class VLineaS extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton actualizarBotton;
+    private javax.swing.JButton Btn_Actuaizar1;
+    private javax.swing.JButton Btn_Eliminar1;
+    private javax.swing.JButton Btn_Habilitar1;
+    private javax.swing.JButton Btn_Limpiar1;
+    private javax.swing.JButton Btn_Nuevo1;
     private javax.swing.JTextField codText;
     private javax.swing.JTextField desText;
-    private javax.swing.JButton eliminarBotton;
-    private javax.swing.JButton guardarBotton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton nuevoBotton;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JButton searchBotton;
     // End of variables declaration//GEN-END:variables
 }

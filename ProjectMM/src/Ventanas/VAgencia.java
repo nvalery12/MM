@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import CRUD.Agencias;
+import CRUD.CRUDAgencias;
 import Controlador.Conexion;
 import javax.swing.JOptionPane;
 
@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class VAgencia extends javax.swing.JFrame {
 
     Conexion conexion = new Conexion();
-    Agencias ag = new Agencias(conexion.conectar());
+    CRUDAgencias ag = new CRUDAgencias(conexion.conectar());
     
     /**
      * Creates new form VAgencia
@@ -289,6 +289,11 @@ public class VAgencia extends javax.swing.JFrame {
         Btn_Nuevo.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Nuevo.setText("Nuevo");
         Btn_Nuevo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_NuevoActionPerformed(evt);
+            }
+        });
 
         Btn_Actuaizar.setBackground(new java.awt.Color(255, 255, 255));
         Btn_Actuaizar.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
@@ -306,6 +311,11 @@ public class VAgencia extends javax.swing.JFrame {
         Btn_Eliminar.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Eliminar.setText("Eliminar");
         Btn_Eliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_EliminarActionPerformed(evt);
+            }
+        });
 
         Btn_Limpiar.setBackground(new java.awt.Color(255, 255, 255));
         Btn_Limpiar.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
@@ -398,6 +408,14 @@ public class VAgencia extends javax.swing.JFrame {
         }
             this.TF_RifAg.setEnabled(false);
     }//GEN-LAST:event_Btn_BuscarActionPerformed
+
+    private void Btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_NuevoActionPerformed
+
+    private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
