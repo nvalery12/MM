@@ -237,7 +237,7 @@ public class VProductos extends javax.swing.JFrame {
                 CodPrTextActionPerformed(evt);
             }
         });
-        getContentPane().add(CodPrText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 360, 35));
+        getContentPane().add(CodPrText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 360, 35));
 
         MinPrText.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         MinPrText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
@@ -270,7 +270,7 @@ public class VProductos extends javax.swing.JFrame {
                 codLSButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(codLSButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 217, 150, 40));
+        getContentPane().add(codLSButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(865, 135, 160, 40));
 
         Btn_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         Btn_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/lupa(1).png"))); // NOI18N
@@ -282,7 +282,7 @@ public class VProductos extends javax.swing.JFrame {
                 Btn_BuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 140, 30, 30));
+        getContentPane().add(Btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 180, 30, 30));
 
         jLabel4.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(36, 204, 167));
@@ -412,7 +412,7 @@ public class VProductos extends javax.swing.JFrame {
                 NombPrTextActionPerformed(evt);
             }
         });
-        getContentPane().add(NombPrText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 410, 35));
+        getContentPane().add(NombPrText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 410, 35));
 
         CodLSText.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         CodLSText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
@@ -422,7 +422,7 @@ public class VProductos extends javax.swing.JFrame {
                 CodLSTextActionPerformed(evt);
             }
         });
-        getContentPane().add(CodLSText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 250, 35));
+        getContentPane().add(CodLSText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 250, 35));
 
         MaxPrText.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         MaxPrText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
@@ -457,17 +457,17 @@ public class VProductos extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(36, 204, 167));
         jLabel8.setText("Codigo Producto");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 300, 35));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 300, 35));
 
         jLabel9.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(36, 204, 167));
         jLabel9.setText("Nombre Producto");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 300, 35));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 300, 35));
 
         jLabel10.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(36, 204, 167));
         jLabel10.setText("Cod Linea Suministro");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 300, 35));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 300, 35));
 
         jLabel11.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(36, 204, 167));
@@ -481,7 +481,7 @@ public class VProductos extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(36, 204, 167));
-        jLabel13.setText("FabriPr!!!!");
+        jLabel13.setText("Fabricante del Producto");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 300, 35));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.png"))); // NOI18N
