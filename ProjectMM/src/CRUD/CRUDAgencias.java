@@ -38,5 +38,55 @@ public class CRUDAgencias {
         
         return datos;
     }
+    
+    public void nuevoAgencia (String RIFAg, String RazonS, String CiudadL, String DireccionAg) {
+        try {
+            String SQL = "INSERT INTO agencias (RIFAg, RazonS, CiudadL, DireccionAg) VALUES (?,?,?,?)";
+            PreparedStatement consulta = this.conexion.prepareStatement(SQL);
+
+            consulta.setString(1, RIFAg);
+            consulta.setString(2, RazonS);
+            consulta.setString(3, CiudadL);
+            consulta.setString(4, DireccionAg);
+            consulta.execute();
+            JOptionPane.showMessageDialog(null, "Agencia Registrada");
+
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Fallo del Registro" + e.getMessage());
+        }
+    }
+    
+    public void actualizarAgencia (String RIFAg, String RazonS, String CiudadL, String DireccionAg) {
+        
+        try {
+            String SQL = "UPDATE agencias SET RazonS=?, CiudadL=?, DireccionAg=? WHERE RIFAg=?";
+            PreparedStatement consulta = this.conexion.prepareStatement(SQL);
+            
+            consulta.setString(1, RazonS);
+            consulta.setString(2, CiudadL);
+            consulta.setString(3, DireccionAg);
+            consulta.setString(4, RIFAg);
+            
+            consulta.execute();
+            JOptionPane.showMessageDialog(null, "Registro actualizado exitosamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fallo al editar el registro" + e.getMessage());
+        }
+    }
+    
+    public void eliminarAgencia (String RIFAg) {
+        
+        try {
+            String SQL = "DELETE FROM agencias where RIFAg=?";
+            PreparedStatement consulta = this.conexion.prepareStatement(SQL);
+            consulta.setString(1, RIFAg);
+            consulta.execute();
+            JOptionPane.showMessageDialog(null, "Registro eliminado exitosamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fallo al editar el registro" + e.getMessage());
+        }
+    }
 
 }

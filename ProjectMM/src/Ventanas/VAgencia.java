@@ -69,14 +69,16 @@ public class VAgencia extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(36, 204, 167));
-        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Datos de la agencia");
         jLabel2.setOpaque(true);
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 900, 80));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 900, 100));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Sin título-2.png"))); // NOI18N
+        jLabel3.setOpaque(true);
 
         Btn_Agencias.setBackground(new java.awt.Color(36, 204, 167));
         Btn_Agencias.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
@@ -201,6 +203,7 @@ public class VAgencia extends javax.swing.JFrame {
 
         TF_Direccion.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         TF_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Direccion.setEnabled(false);
         TF_Direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_DireccionActionPerformed(evt);
@@ -210,6 +213,7 @@ public class VAgencia extends javax.swing.JFrame {
 
         TF_RifAg.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         TF_RifAg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_RifAg.setEnabled(false);
         TF_RifAg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_RifAgActionPerformed(evt);
@@ -219,6 +223,7 @@ public class VAgencia extends javax.swing.JFrame {
 
         TF_RazonSocial.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         TF_RazonSocial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_RazonSocial.setEnabled(false);
         TF_RazonSocial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_RazonSocialActionPerformed(evt);
@@ -228,6 +233,7 @@ public class VAgencia extends javax.swing.JFrame {
 
         TF_Ciudad.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         TF_Ciudad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Ciudad.setEnabled(false);
         TF_Ciudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_CiudadActionPerformed(evt);
@@ -241,6 +247,11 @@ public class VAgencia extends javax.swing.JFrame {
         Btn_Encargado.setText("Encargado");
         Btn_Encargado.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         Btn_Encargado.setBorderPainted(false);
+        Btn_Encargado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_EncargadoActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_Encargado, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 490, 140, 40));
 
         Btn_Buscar.setBackground(new java.awt.Color(255, 255, 255));
@@ -255,22 +266,22 @@ public class VAgencia extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 160, 30, 30));
 
-        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(36, 204, 167));
         jLabel4.setText("Dirección");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 300, 35));
 
-        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(36, 204, 167));
         jLabel5.setText("RIF");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 300, 35));
 
-        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(36, 204, 167));
         jLabel6.setText("Razón Social");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 300, 35));
 
-        jLabel7.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(36, 204, 167));
         jLabel7.setText("Ciudad");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 300, 35));
@@ -279,13 +290,18 @@ public class VAgencia extends javax.swing.JFrame {
         jPanel3.setOpaque(false);
 
         Btn_Habilitar.setBackground(new java.awt.Color(255, 255, 255));
-        Btn_Habilitar.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Habilitar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         Btn_Habilitar.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Habilitar.setText("Habilitar");
         Btn_Habilitar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Habilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_HabilitarActionPerformed(evt);
+            }
+        });
 
         Btn_Nuevo.setBackground(new java.awt.Color(255, 255, 255));
-        Btn_Nuevo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Nuevo.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         Btn_Nuevo.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Nuevo.setText("Nuevo");
         Btn_Nuevo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
@@ -296,7 +312,7 @@ public class VAgencia extends javax.swing.JFrame {
         });
 
         Btn_Actuaizar.setBackground(new java.awt.Color(255, 255, 255));
-        Btn_Actuaizar.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Actuaizar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         Btn_Actuaizar.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Actuaizar.setText("Actualizar");
         Btn_Actuaizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
@@ -307,7 +323,7 @@ public class VAgencia extends javax.swing.JFrame {
         });
 
         Btn_Eliminar.setBackground(new java.awt.Color(255, 255, 255));
-        Btn_Eliminar.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Eliminar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         Btn_Eliminar.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Eliminar.setText("Eliminar");
         Btn_Eliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
@@ -318,10 +334,15 @@ public class VAgencia extends javax.swing.JFrame {
         });
 
         Btn_Limpiar.setBackground(new java.awt.Color(255, 255, 255));
-        Btn_Limpiar.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        Btn_Limpiar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         Btn_Limpiar.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Limpiar.setText("Limpiar");
         Btn_Limpiar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_LimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -391,7 +412,18 @@ public class VAgencia extends javax.swing.JFrame {
     }//GEN-LAST:event_TF_CiudadActionPerformed
 
     private void Btn_ActuaizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ActuaizarActionPerformed
-        // TODO add your handling code here:
+        if (!(this.TF_RifAg.getText().equals("")) && !(this.TF_RazonSocial.getText().equals("")) && !(this.TF_Ciudad.getText().equals("")) && !(this.TF_Direccion.getText().equals(""))) {
+            
+            String RIF = this.TF_RifAg.getText();
+            String RazonS = this.TF_RazonSocial.getText(); 
+            String Ciudad = this.TF_Ciudad.getText();
+            String Direccion = this.TF_Direccion.getText();
+            
+            ag.actualizarAgencia(RIF, RazonS, Ciudad, Direccion);
+
+        }else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_Btn_ActuaizarActionPerformed
 
     private void Btn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BuscarActionPerformed
@@ -400,22 +432,81 @@ public class VAgencia extends javax.swing.JFrame {
             String[] datosAr = ag.buscarAgencia(TF_RifAg.getText());
             
             this.TF_RazonSocial.setText(datosAr[0]);
-            this.TF_Ciudad.setText(datosAr[0]);
+            this.TF_Ciudad.setText(datosAr[1]);
             this.TF_Direccion.setText(datosAr[2]);
    
         }else {
             JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
+        if (!(this.TF_RazonSocial.getText().equals("")) && !(this.TF_Ciudad.getText().equals("")) && !(this.TF_Direccion.getText().equals(""))) {
             this.TF_RifAg.setEnabled(false);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Registro no encontrado","Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_Btn_BuscarActionPerformed
 
+    private void Btn_HabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HabilitarActionPerformed
+        this.TF_RifAg.setEnabled(true);
+        this.TF_RazonSocial.setEnabled(true);
+        this.TF_Ciudad.setEnabled(true);
+        this.TF_Direccion.setEnabled(true);
+    }//GEN-LAST:event_Btn_HabilitarActionPerformed
+
+    private void Btn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LimpiarActionPerformed
+        this.TF_RifAg.setText("");
+        this.TF_RazonSocial.setText("");
+        this.TF_Ciudad.setText("");
+        this.TF_Direccion.setText("");
+        this.TF_RifAg.setEnabled(false);
+        this.TF_RazonSocial.setEnabled(false);
+        this.TF_Ciudad.setEnabled(false);
+        this.TF_Direccion.setEnabled(false);
+    }//GEN-LAST:event_Btn_LimpiarActionPerformed
+
     private void Btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NuevoActionPerformed
-        // TODO add your handling code here:
+        if (!(this.TF_RifAg.getText().equals("")) && !(this.TF_RazonSocial.getText().equals("")) && !(this.TF_Ciudad.getText().equals("")) && !(this.TF_Direccion.getText().equals(""))) {
+            
+            String RIF = this.TF_RifAg.getText();
+            String RazonS = this.TF_RazonSocial.getText(); 
+            String Ciudad = this.TF_Ciudad.getText();
+            String Direccion = this.TF_Direccion.getText();
+            
+           ag.nuevoAgencia(RIF, RazonS, Ciudad, Direccion);
+            
+        }else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_Btn_NuevoActionPerformed
 
     private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
-        // TODO add your handling code here:
+        if (!(this.TF_RifAg.getText().equals(""))) {
+            String RIF = this.TF_RifAg.getText();
+
+            ag.eliminarAgencia(RIF);
+        }
     }//GEN-LAST:event_Btn_EliminarActionPerformed
+
+    private void Btn_EncargadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EncargadoActionPerformed
+        if (!(this.TF_RifAg.getText().equals(""))) {
+            
+            String[] datosAr = ag.buscarAgencia(TF_RifAg.getText());
+            
+            this.TF_RazonSocial.setText(datosAr[0]);
+            this.TF_Ciudad.setText(datosAr[1]);
+            this.TF_Direccion.setText(datosAr[2]);
+            
+            if (!(this.TF_RazonSocial.getText().equals("")) && !(this.TF_Ciudad.getText().equals("")) && !(this.TF_Direccion.getText().equals(""))) {
+                new VEncargado(TF_RifAg.getText()).setVisible(true);
+                this.dispose();
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Agencia no encontrada. Por favor, introduzca una agencia registrada o registre una nueva", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            }  
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, introduzca el RIF","Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_Btn_EncargadoActionPerformed
 
     /**
      * @param args the command line arguments
