@@ -530,11 +530,12 @@ public class VProductos extends javax.swing.JFrame {
                 int max = Integer.parseInt(this.MaxPrText.getText());
                 int min = Integer.parseInt(this.MinPrText.getText());
                 int cant = Integer.parseInt(this.CantText.getText());
+                float monto = Float.parseFloat(this.PrecioPrText.getText());
                 
-                db.updateProducto(this.CodPrText.getText(), this.NombPrText.getText(), this.CodLSText.getText(), max, min, this.PrecioPrText.getText(), 
+                db.updateProducto(this.CodPrText.getText(), this.NombPrText.getText(), this.CodLSText.getText(), max, min, monto, 
                         this.EcoPrText.getText(), this.DescPrText.getText(), this.FabriPrText.getText(), cant);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error: Maximo,Minimo y Cantidad deben ser numeros", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error: Maximo, Minimo, Precio y Cantidad deben ser numeros", "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
 
         }else {
@@ -612,11 +613,12 @@ public class VProductos extends javax.swing.JFrame {
                 int max = Integer.parseInt(this.MaxPrText.getText());
                 int min = Integer.parseInt(this.MinPrText.getText());
                 int cant = Integer.parseInt(this.CantText.getText());
+                float monto = Float.parseFloat(this.PrecioPrText.getText());
                 
-                db.agregarProductor(this.CodPrText.getText(), this.NombPrText.getText(), this.CodLSText.getText(), max, min, this.PrecioPrText.getText(), 
+                db.agregarProductor(this.CodPrText.getText(), this.NombPrText.getText(), this.CodLSText.getText(), max, min, monto, 
                         this.EcoPrText.getText(), this.DescPrText.getText(), this.FabriPrText.getText(), cant);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error: Maximo,Minimo y Cantidad deben ser numeros", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error: Maximo, Minimo,Precio y Cantidad deben ser numeros", "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
             
         }else {

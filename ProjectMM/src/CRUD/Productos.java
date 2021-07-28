@@ -53,7 +53,7 @@ public class Productos {
         return info;
     }
     
-    public void agregarProductor(String codPr,String nombPr,String codLS,int maxPr,int minPr,String precioPr,String ecoPr,String descPr,String fabriPr,int cantActual){
+    public void agregarProductor(String codPr,String nombPr,String codLS,int maxPr,int minPr,float precioPr,String ecoPr,String descPr,String fabriPr,int cantActual){
         try {
             String sQL = "INSERT INTO productos(CodPr,NombPr,CodLS,MaxPr,MinPr,PrecioPr,EcoPr,DescPr,FabriPr,CantActual) "
                     + "VALUES(?,?,?,?,?,?,?,?,?,?)";
@@ -63,7 +63,7 @@ public class Productos {
             consulta.setString(3, codLS);
             consulta.setInt(4, maxPr);
             consulta.setInt(5, minPr);
-            consulta.setString(6, precioPr);
+            consulta.setFloat(6, precioPr);
             consulta.setString(7, ecoPr);
             consulta.setString(8, descPr);
             consulta.setString(9, fabriPr);
@@ -75,7 +75,7 @@ public class Productos {
         }
     }
     
-    public void updateProducto(String codPr,String nombPr,String codLS,int maxPr,int minPr,String precioPr,String ecoPr,String descPr,String fabriPr,int cantActual){
+    public void updateProducto(String codPr,String nombPr,String codLS,int maxPr,int minPr,float precioPr,String ecoPr,String descPr,String fabriPr,int cantActual){
         try {
             String sQL = "UPDATE productos "
                     + "SET NombPr = ?, CodLS = ?, MaxPr = ?, MinPr = ?,PrecioPr = ?,EcoPr = ?,DescPr = ?,FabriPr = ?,CantActual = ? "
@@ -85,7 +85,7 @@ public class Productos {
             consulta.setString(2, codLS);
             consulta.setInt(3, maxPr);
             consulta.setInt(4, minPr);
-            consulta.setString(5, precioPr);
+            consulta.setFloat(5, precioPr);
             consulta.setString(6, ecoPr);
             consulta.setString(7, descPr);
             consulta.setString(8, fabriPr);
