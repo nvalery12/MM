@@ -128,6 +128,11 @@ public class VProductos extends javax.swing.JFrame {
         Btn_Productos.setText("Productos");
         Btn_Productos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         Btn_Productos.setBorderPainted(false);
+        Btn_Productos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ProductosActionPerformed(evt);
+            }
+        });
 
         Btn_OrdenServicios.setBackground(new java.awt.Color(255, 255, 255));
         Btn_OrdenServicios.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
@@ -487,6 +492,8 @@ public class VProductos extends javax.swing.JFrame {
 
     private void Btn_AgenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AgenciasActionPerformed
         // TODO add your handling code here:
+        new VAgencia().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_Btn_AgenciasActionPerformed
 
     private void Btn_ServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ServiciosActionPerformed
@@ -652,6 +659,10 @@ public class VProductos extends javax.swing.JFrame {
     private void FabriPrTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FabriPrTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FabriPrTextActionPerformed
+
+    private void Btn_ProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ProductosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_ProductosActionPerformed
 
     /**
      * @param args the command line arguments
