@@ -497,7 +497,7 @@ public class VAgencia extends javax.swing.JFrame {
             this.TF_Direccion.setText(datosAr[2]);
             
             if (!(this.TF_RazonSocial.getText().equals("")) && !(this.TF_Ciudad.getText().equals("")) && !(this.TF_Direccion.getText().equals(""))) {
-                new VEncargado(TF_RifAg.getText()).setVisible(true);
+                //new VEncargado(TF_RifAg.getText()).setVisible(true);
                 this.dispose();
             }
             else {

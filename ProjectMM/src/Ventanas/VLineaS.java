@@ -227,6 +227,8 @@ public class VLineaS extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.codText.setText("");
         this.desText.setText("");
+        this.codText.setEnabled(false);
+        this.desText.setEnabled(false);
     }//GEN-LAST:event_Btn_Limpiar1ActionPerformed
 
     private void searchBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBottonActionPerformed
@@ -234,9 +236,13 @@ public class VLineaS extends javax.swing.JFrame {
         if (!this.codText.getText().equals("")) {
             String nomb= db.buscarLinea(this.codText.getText());
             this.desText.setText(nomb);
-            this.codText.setEnabled(false);
         }else{
             JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+        if (!this.desText.getText().equals("")) {
+            this.codText.setEnabled(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Registro no encontrado", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_searchBottonActionPerformed
 
