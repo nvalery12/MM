@@ -33,6 +33,11 @@ public class VEncargado extends javax.swing.JFrame {
         initComponents();
         this.TF_RifAgencia.setText(RifAgencia);
         this.TF_CIEncargado.setText(this.encargado.buscarEmpleadoRegistrado(RifAgencia));
+        this.RS_FechaEnc.setDatoFecha(this.encargado.FechaEncargado(RifAgencia));
+        if (!(this.TF_CIEncargado.equals(""))) {
+            this.Btn_Actuaizar.setEnabled(true);
+            this.Btn_Eliminar.setEnabled(true);
+        }
     }
 
     /**
@@ -144,6 +149,7 @@ public class VEncargado extends javax.swing.JFrame {
         Btn_Nuevo.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Nuevo.setText("Nuevo");
         Btn_Nuevo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Nuevo.setEnabled(false);
         Btn_Nuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_NuevoActionPerformed(evt);
@@ -233,6 +239,7 @@ public class VEncargado extends javax.swing.JFrame {
         RS_FechaEnc.setColorBackground(new java.awt.Color(36, 204, 167));
         RS_FechaEnc.setColorButtonHover(new java.awt.Color(36, 204, 167));
         RS_FechaEnc.setColorForeground(new java.awt.Color(0, 0, 0));
+        RS_FechaEnc.setEnabled(false);
         RS_FechaEnc.setFuente(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         getContentPane().add(RS_FechaEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 400, 35));
 
@@ -259,6 +266,7 @@ public class VEncargado extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Empleado: "+nombencargado+" encontrado","Busqueda exitosa", JOptionPane.INFORMATION_MESSAGE);
                 this.TF_CIEncargado.setEnabled(false);
+                this.Btn_Nuevo.setEnabled(true);
             }
         }
     }//GEN-LAST:event_Btn_BuscarActionPerformed

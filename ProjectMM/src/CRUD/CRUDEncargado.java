@@ -57,8 +57,29 @@ public class CRUDEncargado {
         return CIEmp;
     }
     
-    public void nuevoEncargado (String RIFAg, int CIEnc, String FechaEnc) {
         
+    public Date FechaEncargado(String RifAgencia) {
+        
+        Date fecha = null;
+        
+        try {
+            String SQL = "SELECT FechaEnc FROM encargado WHERE RIFAg = ?";
+            PreparedStatement consulta = this.conexion.prepareStatement(SQL);
+            consulta.setString(1, RifAgencia);
+            ResultSet resultado = consulta.executeQuery();
+            
+            while (resultado.next()) {
+                fecha = resultado.getDate("FechaEnc");
+            }                            
+            
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Fallo en la consulta" + e.getMessage());
+        }
+        
+        return fecha;
+    }
+    
+    public void nuevoEncargado (String RIFAg, int CIEnc, String FechaEnc) {
         long fechaLong1 = java.util.Date.parse(FechaEnc);
             java.sql.Date fechaDate1 = new java.sql.Date(fechaLong1);
         
@@ -74,6 +95,37 @@ public class CRUDEncargado {
 
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Fallo del Registro" + e.getMessage());
+        }
+    }
+    
+    public void actualizarEncargado (String RIFAg, int CIEnc, String FechaEnc) {
+        long fechaLong1 = java.util.Date.parse(FechaEnc);
+        java.sql.Date fechaDate1 = new java.sql.Date(fechaLong1);
+        try {
+            String SQL = "UPDATE encargado SET CIEncargado=? FechaEnc=? WHERE RIFAg=?";
+            PreparedStatement consulta = this.conexion.prepareStatement(SQL);
+
+            consulta.setString(1, RIFAg);
+            consulta.setDate(2, fechaDate1);
+            consulta.setInt(3, CIEnc);
+            consulta.execute();
+            JOptionPane.showMessageDialog(null, "Encargado Actualizado");
+
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Fallo del Registro" + e.getMessage());
+        }
+    }
+    
+    public void eliminarEncargado (String RIFAg) {
+        try {
+            String SQL = "DELETE FROM encargado where RIFAg=?";
+            PreparedStatement consulta = this.conexion.prepareStatement(SQL);
+            consulta.setString(1, RIFAg);
+            consulta.execute();
+            JOptionPane.showMessageDialog(null, "Registro eliminado exitosamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fallo al editar el registro" + e.getMessage());
         }
     }
 }
