@@ -233,7 +233,6 @@ public class VEncargado extends javax.swing.JFrame {
         RS_FechaEnc.setColorBackground(new java.awt.Color(36, 204, 167));
         RS_FechaEnc.setColorButtonHover(new java.awt.Color(36, 204, 167));
         RS_FechaEnc.setColorForeground(new java.awt.Color(0, 0, 0));
-        RS_FechaEnc.setFormatoFecha("yyyy-MM-dd");
         RS_FechaEnc.setFuente(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         getContentPane().add(RS_FechaEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 400, 35));
 
