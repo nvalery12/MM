@@ -614,9 +614,13 @@ public class VProductos extends javax.swing.JFrame {
                 int min = Integer.parseInt(this.MinPrText.getText());
                 int cant = Integer.parseInt(this.CantText.getText());
                 float monto = Float.parseFloat(this.PrecioPrText.getText());
-                
-                db.agregarProductor(this.CodPrText.getText(), this.NombPrText.getText(), this.CodLSText.getText(), max, min, monto, 
+                if ((this.EcoPrText.getText().equals("S"))||(this.EcoPrText.getText().equals("N"))) {
+                    db.agregarProductor(this.CodPrText.getText(), this.NombPrText.getText(), this.CodLSText.getText(), max, min, monto, 
                         this.EcoPrText.getText(), this.DescPrText.getText(), this.FabriPrText.getText(), cant);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error: Producto ecologico debe ser S o N", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                }
+                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error: Maximo, Minimo,Precio y Cantidad deben ser numeros", "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
