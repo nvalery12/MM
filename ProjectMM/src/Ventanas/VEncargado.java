@@ -7,6 +7,7 @@ package Ventanas;
 
 import CRUD.CRUDEncargado;
 import Controlador.Conexion;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -58,7 +59,7 @@ public class VEncargado extends javax.swing.JFrame {
         Btn_Eliminar = new javax.swing.JButton();
         Btn_Limpiar = new javax.swing.JButton();
         Btn_Aceptar = new javax.swing.JButton();
-        DC_FechaEnc = new com.toedter.calendar.JDateChooser();
+        RS_FechaEnc = new rojeru_san.rsdate.RSDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -229,12 +230,12 @@ public class VEncargado extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 140, 40));
 
-        DC_FechaEnc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 3, true));
-        DC_FechaEnc.setDateFormatString("yyyy-MM-dd");
-        DC_FechaEnc.setEnabled(false);
-        DC_FechaEnc.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        DC_FechaEnc.setOpaque(false);
-        getContentPane().add(DC_FechaEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 400, 35));
+        RS_FechaEnc.setColorBackground(new java.awt.Color(36, 204, 167));
+        RS_FechaEnc.setColorButtonHover(new java.awt.Color(36, 204, 167));
+        RS_FechaEnc.setColorForeground(new java.awt.Color(0, 0, 0));
+        RS_FechaEnc.setFormatoFecha("yyyy-MM-dd");
+        RS_FechaEnc.setFuente(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        getContentPane().add(RS_FechaEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 400, 35));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 620));
@@ -252,7 +253,7 @@ public class VEncargado extends javax.swing.JFrame {
 
     private void Btn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BuscarActionPerformed
         if (!(this.TF_CIEncargado.getText().equals(""))) {
-            String nombencargado = this.encargado.buscarEmpleado(this.TF_CIEncargado.getText());
+            String nombencargado = this.encargado.buscarEmpleado(Integer.parseInt(this.TF_CIEncargado.getText()));
             if ((nombencargado.equals(""))) {
                 JOptionPane.showMessageDialog(null, "Cedula no encontrada. Por favor, ingrese una cedula registrada o registre un nuevo empleado", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 this.TF_CIEncargado.setText("");
@@ -265,17 +266,22 @@ public class VEncargado extends javax.swing.JFrame {
 
     private void Btn_HabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HabilitarActionPerformed
         this.TF_CIEncargado.setEnabled(true);
-        this.DC_FechaEnc.setEnabled(true);
+        this.RS_FechaEnc.setEnabled(true);
     }//GEN-LAST:event_Btn_HabilitarActionPerformed
 
     private void Btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NuevoActionPerformed
-          if (!(this.TF_CIEncargado.getText().equals("")) && !(this.DC_FechaEnc.getDateFormatString().equals(""))) {
-            String rifag = this.TF_RifAgencia.getText();
-            String cienc = this.TF_CIEncargado.getText();
-            Date fencargado = this.DC_FechaEnc.getDate();
+        String formatoFecha = ("yyyy/MM/dd");
+        SimpleDateFormat formateo = new SimpleDateFormat(formatoFecha);
+        
+        if (!(this.TF_CIEncargado.getText().equals("")) && !(this.RS_FechaEnc.getDatoFecha().toString().isEmpty())) {
+            Date fechaDate = this.RS_FechaEnc.getDatoFecha();
+            String fechaEmString = formateo.format(fechaDate);
             
-            encargado.nuevoEncargado(rifag, cienc, fencargado);
-          }
+            String rifag = this.TF_RifAgencia.getText();
+            int cienc = Integer.parseInt(this.TF_CIEncargado.getText());           
+            
+            encargado.nuevoEncargado(rifag, cienc, fechaEmString);
+        }
     }//GEN-LAST:event_Btn_NuevoActionPerformed
 
     private void Btn_ActuaizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ActuaizarActionPerformed
@@ -338,7 +344,7 @@ public class VEncargado extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Habilitar;
     private javax.swing.JButton Btn_Limpiar;
     private javax.swing.JButton Btn_Nuevo;
-    private com.toedter.calendar.JDateChooser DC_FechaEnc;
+    private rojeru_san.rsdate.RSDateChooser RS_FechaEnc;
     private javax.swing.JTextField TF_CIEncargado;
     private javax.swing.JTextField TF_RifAgencia;
     private javax.swing.JLabel jLabel1;

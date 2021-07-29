@@ -15,14 +15,14 @@ public class CRUDEncargado {
         this.conexion = conexion;
     }
     
-    public String buscarEmpleado(String CIEncargado) {
+    public String buscarEmpleado(int CIEncargado) {
         
         String nombreEmp = null;
         
         try {
             String SQL = "SELECT NombreEmp FROM empleados WHERE CIEmp = ?";
             PreparedStatement consulta = this.conexion.prepareStatement(SQL);
-            consulta.setString(1, CIEncargado);
+            consulta.setInt(1, CIEncargado);
             ResultSet resultado = consulta.executeQuery();
             
             while (resultado.next()) {
@@ -57,14 +57,18 @@ public class CRUDEncargado {
         return CIEmp;
     }
     
-    public void nuevoEncargado (String RIFAg, String CIEnc, Date FechaEnc) {
+    public void nuevoEncargado (String RIFAg, int CIEnc, String FechaEnc) {
+        
+        long fechaLong1 = java.util.Date.parse(FechaEnc);
+            java.sql.Date fechaDate1 = new java.sql.Date(fechaLong1);
+        
         try {
             String SQL = "INSERT INTO encargado (RIFAg, CIEncargado, FechaEnc) VALUES (?,?,?)";
             PreparedStatement consulta = this.conexion.prepareStatement(SQL);
 
             consulta.setString(1, RIFAg);
-            consulta.setString(2, CIEnc);
-            consulta.setDate(3, (java.sql.Date) FechaEnc);
+            consulta.setInt(2, CIEnc);
+            consulta.setDate(3, fechaDate1);
             consulta.execute();
             JOptionPane.showMessageDialog(null, "Encargado Registrado");
 
