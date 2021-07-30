@@ -27,20 +27,553 @@ public class VServicios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        Btn_Agencias = new javax.swing.JButton();
+        Btn_Empleados = new javax.swing.JButton();
+        Btn_Clientes = new javax.swing.JButton();
+        Btn_Vehiculos = new javax.swing.JButton();
+        Btn_Productos = new javax.swing.JButton();
+        Btn_OrdenServicios = new javax.swing.JButton();
+        Btn_Facturas = new javax.swing.JButton();
+        Btn_Servicios = new javax.swing.JButton();
+        Btn_Actividades = new javax.swing.JButton();
+        Perfiles = new javax.swing.JButton();
+        TF_TiempoR = new javax.swing.JTextField();
+        TF_RifAg = new javax.swing.JTextField();
+        TF_Nombre = new javax.swing.JTextField();
+        TF_Desc = new javax.swing.JTextField();
+        Btn_Actvidades = new javax.swing.JButton();
+        Btn_BuscarEmp = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        Btn_Habilitar = new javax.swing.JButton();
+        Btn_Nuevo = new javax.swing.JButton();
+        Btn_Actuaizar = new javax.swing.JButton();
+        Btn_Eliminar = new javax.swing.JButton();
+        Btn_Limpiar = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        TF_Direccion1 = new javax.swing.JTextField();
+        Btn_BuscarCod = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        TF_CostoServ = new javax.swing.JTextField();
+        Btn_Actvidades1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, 300, 40));
+        jLabel2.setBackground(new java.awt.Color(36, 204, 167));
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Datos del servicio");
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 900, 100));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Sin título-2.png"))); // NOI18N
+        jLabel3.setOpaque(true);
+
+        Btn_Agencias.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Agencias.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Agencias.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Agencias.setText("Agencia");
+        Btn_Agencias.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Agencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_AgenciasActionPerformed(evt);
+            }
+        });
+
+        Btn_Empleados.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Empleados.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Empleados.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Empleados.setText("Empleados");
+        Btn_Empleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+
+        Btn_Clientes.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Clientes.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Clientes.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Clientes.setText("Clientes");
+        Btn_Clientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+
+        Btn_Vehiculos.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Vehiculos.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Vehiculos.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Vehiculos.setText("Vehiculos");
+        Btn_Vehiculos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+
+        Btn_Productos.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Productos.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Productos.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Productos.setText("Productos");
+        Btn_Productos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+
+        Btn_OrdenServicios.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_OrdenServicios.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_OrdenServicios.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_OrdenServicios.setText("Orden de Servicio");
+        Btn_OrdenServicios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+        Btn_OrdenServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_OrdenServiciosActionPerformed(evt);
+            }
+        });
+
+        Btn_Facturas.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Facturas.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Facturas.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Facturas.setText("Facturas");
+        Btn_Facturas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+
+        Btn_Servicios.setBackground(new java.awt.Color(36, 204, 167));
+        Btn_Servicios.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Servicios.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Servicios.setText("Servicios");
+        Btn_Servicios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+        Btn_Servicios.setBorderPainted(false);
+        Btn_Servicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ServiciosActionPerformed(evt);
+            }
+        });
+
+        Btn_Actividades.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Actividades.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Actividades.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Actividades.setText("Actividades");
+        Btn_Actividades.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+
+        Perfiles.setBackground(new java.awt.Color(255, 0, 51));
+        Perfiles.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Perfiles.setForeground(new java.awt.Color(255, 255, 255));
+        Perfiles.setText("Salir");
+        Perfiles.setBorderPainted(false);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_Agencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_Empleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_Vehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_Productos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_OrdenServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_Facturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_Servicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Btn_Actividades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Perfiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_Agencias, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_Servicios, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_Actividades, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_Vehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_OrdenServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Btn_Facturas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Perfiles, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 720));
+
+        TF_TiempoR.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_TiempoR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_TiempoR.setEnabled(false);
+        TF_TiempoR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_TiempoRActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_TiempoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 400, 35));
+
+        TF_RifAg.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_RifAg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_RifAg.setEnabled(false);
+        TF_RifAg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_RifAgActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_RifAg, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 360, 35));
+
+        TF_Nombre.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Nombre.setEnabled(false);
+        TF_Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_NombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 400, 35));
+
+        TF_Desc.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Desc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Desc.setEnabled(false);
+        TF_Desc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_DescActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Desc, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 400, 35));
+
+        Btn_Actvidades.setBackground(new java.awt.Color(36, 204, 167));
+        Btn_Actvidades.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Actvidades.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Actvidades.setText("Afiliar a Agencia");
+        Btn_Actvidades.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Btn_Actvidades.setBorderPainted(false);
+        Btn_Actvidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ActvidadesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Actvidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 140, 40));
+
+        Btn_BuscarEmp.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_BuscarEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/lupa(1).png"))); // NOI18N
+        Btn_BuscarEmp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_BuscarEmp.setBorderPainted(false);
+        Btn_BuscarEmp.setContentAreaFilled(false);
+        Btn_BuscarEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_BuscarEmpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_BuscarEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 210, 30, 30));
+
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel4.setText("Tiempo para reservar");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 300, 35));
+
+        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel6.setText("Nombre");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 300, 35));
+
+        jLabel11.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel11.setText("Descripción");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 300, 35));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2), "Opciones", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Helvetica", 1, 14), new java.awt.Color(36, 204, 167))); // NOI18N
+        jPanel3.setOpaque(false);
+
+        Btn_Habilitar.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Habilitar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Habilitar.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Habilitar.setText("Habilitar");
+        Btn_Habilitar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Habilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_HabilitarActionPerformed(evt);
+            }
+        });
+
+        Btn_Nuevo.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Nuevo.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Nuevo.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Nuevo.setText("Nuevo");
+        Btn_Nuevo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_NuevoActionPerformed(evt);
+            }
+        });
+
+        Btn_Actuaizar.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Actuaizar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Actuaizar.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Actuaizar.setText("Actualizar");
+        Btn_Actuaizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Actuaizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ActuaizarActionPerformed(evt);
+            }
+        });
+
+        Btn_Eliminar.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Eliminar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Eliminar.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Eliminar.setText("Eliminar");
+        Btn_Eliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_EliminarActionPerformed(evt);
+            }
+        });
+
+        Btn_Limpiar.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_Limpiar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Limpiar.setForeground(new java.awt.Color(36, 204, 167));
+        Btn_Limpiar.setText("Limpiar");
+        Btn_Limpiar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_LimpiarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(Btn_Habilitar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_Nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_Actuaizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Btn_Habilitar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Actuaizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Btn_Limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, 750, -1));
+
+        jLabel8.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel8.setText("Codigo");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 300, 35));
+
+        jLabel9.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel9.setText("Empleado");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 300, 35));
+
+        TF_Direccion1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Direccion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Direccion1.setEnabled(false);
+        TF_Direccion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_Direccion1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Direccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 360, 35));
+
+        Btn_BuscarCod.setBackground(new java.awt.Color(255, 255, 255));
+        Btn_BuscarCod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/lupa(1).png"))); // NOI18N
+        Btn_BuscarCod.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_BuscarCod.setBorderPainted(false);
+        Btn_BuscarCod.setContentAreaFilled(false);
+        Btn_BuscarCod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_BuscarCodActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_BuscarCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 150, 30, 30));
+
+        jLabel7.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel7.setText("Costo del Servicio");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 300, 35));
+
+        TF_CostoServ.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_CostoServ.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_CostoServ.setEnabled(false);
+        TF_CostoServ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_CostoServActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_CostoServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 400, 35));
+
+        Btn_Actvidades1.setBackground(new java.awt.Color(36, 204, 167));
+        Btn_Actvidades1.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        Btn_Actvidades1.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Actvidades1.setText("Actividades");
+        Btn_Actvidades1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Btn_Actvidades1.setBorderPainted(false);
+        Btn_Actvidades1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Actvidades1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Actvidades1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 510, 140, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_AgenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AgenciasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_AgenciasActionPerformed
+
+    private void Btn_OrdenServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_OrdenServiciosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_OrdenServiciosActionPerformed
+
+    private void Btn_ServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ServiciosActionPerformed
+        new VServicios().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Btn_ServiciosActionPerformed
+
+    private void TF_TiempoRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_TiempoRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_TiempoRActionPerformed
+
+    private void TF_RifAgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_RifAgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_RifAgActionPerformed
+
+    private void TF_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_NombreActionPerformed
+
+    private void TF_DescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_DescActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_DescActionPerformed
+
+    private void Btn_ActvidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ActvidadesActionPerformed
+        /*if (!(this.TF_RifAg.getText().equals(""))) {
+
+            String[] datosAr = ag.buscarAgencia(TF_RifAg.getText());
+
+            this.TF_Nombre.setText(datosAr[0]);
+            this.TF_Desc.setText(datosAr[1]);
+            this.TF_TiempoR.setText(datosAr[2]);
+
+            if (!(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals(""))) {
+                new VEncargado(TF_RifAg.getText()).setVisible(true);
+                this.dispose();
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Agencia no encontrada. Por favor, introduzca una agencia registrada o registre una nueva", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, introduzca el RIF","Advertencia", JOptionPane.WARNING_MESSAGE);
+        }*/
+    }//GEN-LAST:event_Btn_ActvidadesActionPerformed
+
+    private void Btn_BuscarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BuscarEmpActionPerformed
+        /*if (!(this.TF_RifAg.getText().equals(""))) {
+
+            String[] datosAr = ag.buscarAgencia(TF_RifAg.getText());
+
+            this.TF_Nombre.setText(datosAr[0]);
+            this.TF_Desc.setText(datosAr[1]);
+            this.TF_TiempoR.setText(datosAr[2]);
+
+        }else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+        if (!(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals(""))) {
+            this.TF_RifAg.setEnabled(false);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Registro no encontrado","Advertencia", JOptionPane.WARNING_MESSAGE);
+        }*/
+    }//GEN-LAST:event_Btn_BuscarEmpActionPerformed
+
+    private void Btn_HabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HabilitarActionPerformed
+
+    }//GEN-LAST:event_Btn_HabilitarActionPerformed
+
+    private void Btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NuevoActionPerformed
+        /*if (!(this.TF_RifAg.getText().equals("")) && !(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals(""))) {
+
+            String RIF = this.TF_RifAg.getText();
+            String RazonS = this.TF_Nombre.getText();
+            String Ciudad = this.TF_Desc.getText();
+            String Direccion = this.TF_TiempoR.getText();
+
+            ag.nuevoAgencia(RIF, RazonS, Ciudad, Direccion);
+
+        }else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }*/
+    }//GEN-LAST:event_Btn_NuevoActionPerformed
+
+    private void Btn_ActuaizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ActuaizarActionPerformed
+        /*if (!(this.TF_RifAg.getText().equals("")) && !(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals(""))) {
+
+            String RIF = this.TF_RifAg.getText();
+            String RazonS = this.TF_Nombre.getText();
+            String Ciudad = this.TF_Desc.getText();
+            String Direccion = this.TF_TiempoR.getText();
+
+            ag.actualizarAgencia(RIF, RazonS, Ciudad, Direccion);
+
+        }else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }*/
+    }//GEN-LAST:event_Btn_ActuaizarActionPerformed
+
+    private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
+        /*if (!(this.TF_RifAg.getText().equals(""))) {
+            String RIF = this.TF_RifAg.getText();
+
+            ag.eliminarAgencia(RIF);
+        }*/
+    }//GEN-LAST:event_Btn_EliminarActionPerformed
+
+    private void Btn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LimpiarActionPerformed
+        this.TF_RifAg.setText("");
+        this.TF_Nombre.setText("");
+        this.TF_Desc.setText("");
+        this.TF_TiempoR.setText("");
+        this.TF_RifAg.setEnabled(false);
+        this.TF_Nombre.setEnabled(false);
+        this.TF_Desc.setEnabled(false);
+        this.TF_TiempoR.setEnabled(false);
+    }//GEN-LAST:event_Btn_LimpiarActionPerformed
+
+    private void TF_Direccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_Direccion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_Direccion1ActionPerformed
+
+    private void Btn_BuscarCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BuscarCodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_BuscarCodActionPerformed
+
+    private void TF_CostoServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CostoServActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_CostoServActionPerformed
+
+    private void Btn_Actvidades1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Actvidades1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Actvidades1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,7 +611,41 @@ public class VServicios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Actividades;
+    private javax.swing.JButton Btn_Actuaizar;
+    private javax.swing.JButton Btn_Actvidades;
+    private javax.swing.JButton Btn_Actvidades1;
+    private javax.swing.JButton Btn_Agencias;
+    private javax.swing.JButton Btn_BuscarCod;
+    private javax.swing.JButton Btn_BuscarEmp;
+    private javax.swing.JButton Btn_Clientes;
+    private javax.swing.JButton Btn_Eliminar;
+    private javax.swing.JButton Btn_Empleados;
+    private javax.swing.JButton Btn_Facturas;
+    private javax.swing.JButton Btn_Habilitar;
+    private javax.swing.JButton Btn_Limpiar;
+    private javax.swing.JButton Btn_Nuevo;
+    private javax.swing.JButton Btn_OrdenServicios;
+    private javax.swing.JButton Btn_Productos;
+    private javax.swing.JButton Btn_Servicios;
+    private javax.swing.JButton Btn_Vehiculos;
+    private javax.swing.JButton Perfiles;
+    private javax.swing.JTextField TF_CostoServ;
+    private javax.swing.JTextField TF_Desc;
+    private javax.swing.JTextField TF_Direccion1;
+    private javax.swing.JTextField TF_Nombre;
+    private javax.swing.JTextField TF_RifAg;
+    private javax.swing.JTextField TF_TiempoR;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

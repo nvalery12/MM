@@ -5,39 +5,35 @@
  */
 package Ventanas;
 
-import CRUD.CRUDEncargado;
+import CRUD.CRUDActividades;
 import Controlador.Conexion;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
  * @author angel
  */
-public class VEncargado extends javax.swing.JFrame {
+public class VActividades extends javax.swing.JFrame {
 
     /**
-     * Creates new form VEncargado
+     * Creates new form VActividades
      */
-
-    Conexion conexion = new Conexion();
-    CRUDEncargado encargado = new CRUDEncargado(conexion.conectar());
     
-    public VEncargado() {
+    Conexion conexion = new Conexion();
+    CRUDActividades actividad = new CRUDActividades(conexion.conectar());
+    
+    public VActividades() {
         initComponents();
-        
     }
-
-    public VEncargado(String RifAgencia) {
+    
+    public VActividades(String CodServ) {
         initComponents();
-        this.TF_RifAgencia.setText(RifAgencia);
-        this.TF_CIEncargado.setText(this.encargado.buscarEmpleadoRegistrado(RifAgencia));
-        this.RS_FechaEnc.setDatoFecha(this.encargado.FechaEncargado(RifAgencia));
-        if (!(this.TF_CIEncargado.equals(""))) {
-            this.Btn_Actuaizar.setEnabled(true);
-            this.Btn_Eliminar.setEnabled(true);
-        }
+        this.TF_Servicio.setText(CodServ);
+        SpinnerModel sm = new SpinnerNumberModel(this.actividad.obtenerUltActividad()+1, 0, this.actividad.obtenerUltActividad()+1, 1); //default value,lower bound,upper bound,increment by
+        this.S_NActv.setModel(sm);
     }
 
     /**
@@ -51,10 +47,8 @@ public class VEncargado extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        TF_RifAgencia = new javax.swing.JTextField();
+        TF_Desc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TF_CIEncargado = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         Btn_Buscar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -64,7 +58,16 @@ public class VEncargado extends javax.swing.JFrame {
         Btn_Eliminar = new javax.swing.JButton();
         Btn_Limpiar = new javax.swing.JButton();
         Btn_Aceptar = new javax.swing.JButton();
-        RS_FechaEnc = new rojeru_san.rsdate.RSDateChooser();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        TF_Servicio = new javax.swing.JTextField();
+        TF_Nombre = new javax.swing.JTextField();
+        TF_Capac = new javax.swing.JTextField();
+        TF_Costo = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        S_NActv = new javax.swing.JSpinner();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,44 +82,29 @@ public class VEncargado extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Encargado");
+        jLabel2.setText("Actividad");
         jLabel2.setOpaque(true);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 670, 100));
 
-        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(36, 204, 167));
-        jLabel6.setText("RIF de la Agencia");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 180, 35));
-
-        TF_RifAgencia.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        TF_RifAgencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
-        TF_RifAgencia.setEnabled(false);
-        TF_RifAgencia.addActionListener(new java.awt.event.ActionListener() {
+        TF_Desc.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Desc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Desc.setEnabled(false);
+        TF_Desc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_RifAgenciaActionPerformed(evt);
+                TF_DescActionPerformed(evt);
             }
         });
-        getContentPane().add(TF_RifAgencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 400, 35));
+        getContentPane().add(TF_Desc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 400, 35));
 
         jLabel7.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(36, 204, 167));
-        jLabel7.setText("Cedula del Empleado");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 180, 35));
-
-        TF_CIEncargado.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        TF_CIEncargado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
-        TF_CIEncargado.setEnabled(false);
-        TF_CIEncargado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_CIEncargadoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(TF_CIEncargado, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 360, 35));
+        jLabel7.setText("Descripción");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 180, 35));
 
         jLabel8.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(36, 204, 167));
-        jLabel8.setText("Fecha de Cargo");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 180, 35));
+        jLabel8.setText("Costo");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 180, 35));
 
         Btn_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         Btn_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/lupa(1).png"))); // NOI18N
@@ -128,7 +116,7 @@ public class VEncargado extends javax.swing.JFrame {
                 Btn_BuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 30, 30));
+        getContentPane().add(Btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 30, 30));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2), "Opciones", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Helvetica", 1, 14), new java.awt.Color(36, 204, 167))); // NOI18N
         jPanel3.setOpaque(false);
@@ -236,12 +224,79 @@ public class VEncargado extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 140, 40));
 
-        RS_FechaEnc.setColorBackground(new java.awt.Color(36, 204, 167));
-        RS_FechaEnc.setColorButtonHover(new java.awt.Color(36, 204, 167));
-        RS_FechaEnc.setColorForeground(new java.awt.Color(0, 0, 0));
-        RS_FechaEnc.setEnabled(false);
-        RS_FechaEnc.setFuente(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        getContentPane().add(RS_FechaEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 400, 35));
+        jLabel9.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel9.setText("Servicio");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 180, 35));
+
+        jLabel10.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel10.setText("Numero de actividad");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 180, 35));
+
+        jLabel11.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel11.setText("Nombre");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 180, 35));
+
+        TF_Servicio.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Servicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Servicio.setEnabled(false);
+        TF_Servicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_ServicioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Servicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 400, 35));
+
+        TF_Nombre.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Nombre.setEnabled(false);
+        TF_Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_NombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 400, 35));
+
+        TF_Capac.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Capac.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Capac.setEnabled(false);
+        TF_Capac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_CapacActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Capac, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 400, 35));
+
+        TF_Costo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Costo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Costo.setEnabled(false);
+        TF_Costo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_CostoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 400, 35));
+
+        jLabel12.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel12.setText("Capacidad");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 180, 35));
+
+        S_NActv.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        S_NActv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        S_NActv.setEnabled(false);
+        getContentPane().add(S_NActv, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 300, 35));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/mas.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 30, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 620));
@@ -249,64 +304,106 @@ public class VEncargado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TF_RifAgenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_RifAgenciaActionPerformed
+    private void TF_DescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_DescActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_RifAgenciaActionPerformed
-
-    private void TF_CIEncargadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CIEncargadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_CIEncargadoActionPerformed
+    }//GEN-LAST:event_TF_DescActionPerformed
 
     private void Btn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BuscarActionPerformed
-        if (!(this.TF_CIEncargado.getText().equals(""))) {
-            String nombencargado = this.encargado.buscarEmpleado(Integer.parseInt(this.TF_CIEncargado.getText()));
-            if ((nombencargado.equals(""))) {
-                JOptionPane.showMessageDialog(null, "Cedula no encontrada. Por favor, ingrese una cedula registrada o registre un nuevo empleado", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                this.TF_CIEncargado.setText("");
-            } else {
-                JOptionPane.showMessageDialog(null, "Empleado: "+nombencargado+" encontrado","Busqueda exitosa", JOptionPane.INFORMATION_MESSAGE);
-                this.TF_CIEncargado.setEnabled(false);
-                this.Btn_Nuevo.setEnabled(true);
-            }
+        if (!(this.TF_Servicio.getText().equals("")) && !(this.S_NActv.getValue().toString().equals(""))) {
+            String[] datosAc = this.actividad.buscarActividad(this.TF_Servicio.getText(),Integer.parseInt(this.S_NActv.getValue().toString()));
+            
+            this.TF_Nombre.setText(datosAc[0]);
+            this.TF_Capac.setText(datosAc[1]);
+            this.TF_Desc.setText(datosAc[2]);
+            this.TF_Costo.setText(datosAc[3]);
         }
     }//GEN-LAST:event_Btn_BuscarActionPerformed
 
     private void Btn_HabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HabilitarActionPerformed
-        this.TF_CIEncargado.setEnabled(true);
-        this.RS_FechaEnc.setEnabled(true);
+        this.S_NActv.setEnabled(true);
+        this.TF_Nombre.setEnabled(true);
+        this.TF_Desc.setEnabled(true);
+        this.TF_Capac.setEnabled(true);
+        this.TF_Costo.setEnabled(true);
+        
     }//GEN-LAST:event_Btn_HabilitarActionPerformed
 
     private void Btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NuevoActionPerformed
-        String formatoFecha = ("yyyy/MM/dd");
-        SimpleDateFormat formateo = new SimpleDateFormat(formatoFecha);
-        
-        if (!(this.TF_CIEncargado.getText().equals("")) && !(this.RS_FechaEnc.getDatoFecha().toString().isEmpty())) {
-            Date fechaDate = this.RS_FechaEnc.getDatoFecha();
-            String fechaEmString = formateo.format(fechaDate);
+        if (!(this.TF_Servicio.getText().equals("")) && !(this.S_NActv.getValue().toString().equals("")) && !(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_Capac.getText().equals("")) && !(this.TF_Costo.getText().equals(""))) {
+         
+            String Serv = this.TF_Servicio.getText();
+            int Act = Integer.parseInt(this.S_NActv.getValue().toString());
+            String Nomb = this.TF_Nombre.getText();
+            String Desc = this.TF_Desc.getText();
+            int Capac = Integer.parseInt(this.TF_Capac.getText());
+            float monto = Float.parseFloat(this.TF_Costo.getText());
             
-            String rifag = this.TF_RifAgencia.getText();
-            int cienc = Integer.parseInt(this.TF_CIEncargado.getText());           
-            
-            encargado.nuevoEncargado(rifag, cienc, fechaEmString);
+            actividad.nuevaActividad(Serv, Act, Nomb, Desc, Capac, monto);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_Btn_NuevoActionPerformed
 
     private void Btn_ActuaizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ActuaizarActionPerformed
-
+        if (!(this.TF_Servicio.getText().equals("")) && !(this.S_NActv.getValue().toString().equals("")) && !(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_Capac.getText().equals("")) && !(this.TF_Costo.getText().equals(""))) {
+         
+            String Serv = this.TF_Servicio.getText();
+            int Act = Integer.parseInt(this.S_NActv.getValue().toString());
+            String Nomb = this.TF_Nombre.getText();
+            String Desc = this.TF_Desc.getText();
+            int Capac = Integer.parseInt(this.TF_Capac.getText());
+            float monto = Float.parseFloat(this.TF_Costo.getText());
+            
+            actividad.actualizarActividad(Serv, Act, Nomb, Desc, Capac, monto);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_Btn_ActuaizarActionPerformed
 
     private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
-
+        if (!(this.TF_Servicio.getText().equals("")) && !(this.S_NActv.getValue().toString().equals(""))) {
+         
+            String Serv = this.TF_Servicio.getText();
+            int Act = Integer.parseInt(this.S_NActv.getValue().toString());
+            
+            actividad.eliminarEncargado(Serv, Act);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_Btn_EliminarActionPerformed
 
     private void Btn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LimpiarActionPerformed
-
+        this.S_NActv.setValue(this.actividad.obtenerUltActividad());
+        this.TF_Nombre.setText("");
+        this.TF_Desc.setText("");
+        this.TF_Capac.setText("");
+        this.TF_Costo.setText("");
     }//GEN-LAST:event_Btn_LimpiarActionPerformed
 
     private void Btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AceptarActionPerformed
         new VAgencia().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_AceptarActionPerformed
+
+    private void TF_ServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_ServicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_ServicioActionPerformed
+
+    private void TF_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_NombreActionPerformed
+
+    private void TF_CapacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CapacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_CapacActionPerformed
+
+    private void TF_CostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CostoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_CostoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.S_NActv.setValue(this.actividad.obtenerUltActividad()+1);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,20 +422,20 @@ public class VEncargado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VEncargado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VActividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VEncargado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VActividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VEncargado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VActividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VEncargado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VActividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VEncargado().setVisible(true);
+                new VActividades().setVisible(true);
             }
         });
     }
@@ -351,15 +448,22 @@ public class VEncargado extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Habilitar;
     private javax.swing.JButton Btn_Limpiar;
     private javax.swing.JButton Btn_Nuevo;
-    private rojeru_san.rsdate.RSDateChooser RS_FechaEnc;
-    private javax.swing.JTextField TF_CIEncargado;
-    private javax.swing.JTextField TF_RifAgencia;
+    private javax.swing.JSpinner S_NActv;
+    private javax.swing.JTextField TF_Capac;
+    private javax.swing.JTextField TF_Costo;
+    private javax.swing.JTextField TF_Desc;
+    private javax.swing.JTextField TF_Nombre;
+    private javax.swing.JTextField TF_Servicio;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
