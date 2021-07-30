@@ -104,17 +104,17 @@ public class VPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_JefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_JefeActionPerformed
-        new VIniciarSesión().setVisible(true);
+        new VIniciarSesión(2).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_JefeActionPerformed
 
     private void Btn_EmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EmpleadoActionPerformed
-        new VIniciarSesión().setVisible(true);
+        new VIniciarSesión(3).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_EmpleadoActionPerformed
 
     private void Btn_AdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AdministradorActionPerformed
-        new VIniciarSesión().setVisible(true);
+        new VIniciarSesión(1).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_AdministradorActionPerformed
 

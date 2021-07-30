@@ -381,7 +381,7 @@ public class VActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_LimpiarActionPerformed
 
     private void Btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AceptarActionPerformed
-        new VAgencia().setVisible(true);
+        new VServicios().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_AceptarActionPerformed
 

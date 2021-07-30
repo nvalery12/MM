@@ -5,6 +5,10 @@
  */
 package Ventanas;
 
+import CRUD.CRUDInicioSesion;
+import Controlador.Conexion;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author angel
@@ -14,8 +18,17 @@ public class VIniciarSesión extends javax.swing.JFrame {
     /**
      * Creates new form IniciarSesión
      */
+    Conexion conexion = new Conexion();
+    CRUDInicioSesion rifagencia = new CRUDInicioSesion(conexion.conectar());
+    int tipoUser;
+    
     public VIniciarSesión() {
         initComponents();
+    }
+    
+    public VIniciarSesión(int Tipo) {
+        initComponents();
+        tipoUser = Tipo;
     }
 
     /**
@@ -30,7 +43,7 @@ public class VIniciarSesión extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        TF_Usuairio = new javax.swing.JTextField();
+        TF_Cedula = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         TF_Contrasena = new javax.swing.JTextField();
         Btn_Regresar = new javax.swing.JButton();
@@ -56,17 +69,17 @@ public class VIniciarSesión extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(36, 204, 167));
-        jLabel6.setText("Usuario");
+        jLabel6.setText("Cedula");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 300, 35));
 
-        TF_Usuairio.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        TF_Usuairio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
-        TF_Usuairio.addActionListener(new java.awt.event.ActionListener() {
+        TF_Cedula.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Cedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_UsuairioActionPerformed(evt);
+                TF_CedulaActionPerformed(evt);
             }
         });
-        getContentPane().add(TF_Usuairio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 400, 35));
+        getContentPane().add(TF_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 400, 35));
 
         jLabel7.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(36, 204, 167));
@@ -120,17 +133,21 @@ public class VIniciarSesión extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TF_UsuairioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_UsuairioActionPerformed
+    private void TF_CedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_UsuairioActionPerformed
+    }//GEN-LAST:event_TF_CedulaActionPerformed
 
     private void TF_ContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_ContrasenaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_ContrasenaActionPerformed
 
     private void Btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_IngresarActionPerformed
-        new VAgencia().setVisible(true);
-        this.dispose();
+        if(!(this.TF_Cedula.getText().equals(""))) {            
+            new VAgencia( this.rifagencia.rifEmpleado(Integer.parseInt(this.TF_Cedula.getText())) , tipoUser).setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_Btn_IngresarActionPerformed
 
     private void Btn_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RegresarActionPerformed
@@ -178,8 +195,8 @@ public class VIniciarSesión extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Ingresar;
     private javax.swing.JButton Btn_OlvidoCont;
     private javax.swing.JButton Btn_Regresar;
+    private javax.swing.JTextField TF_Cedula;
     private javax.swing.JTextField TF_Contrasena;
-    private javax.swing.JTextField TF_Usuairio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

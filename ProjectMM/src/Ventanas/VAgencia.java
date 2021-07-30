@@ -24,6 +24,26 @@ public class VAgencia extends javax.swing.JFrame {
     public VAgencia() {
         initComponents();
     }
+    
+    public VAgencia(String agencia, int tipo) {
+        initComponents();
+        if (tipo==3 || tipo ==2) {
+            String[] agenciaa = ag.buscarAgencia(agencia);
+            
+            this.TF_RifAg.setText(agencia);
+            this.TF_RazonSocial.setText(agenciaa[0]);
+            this.TF_Ciudad.setText(agenciaa[1]);
+            this.TF_Direccion.setText(agenciaa[2]);
+            
+            this.Btn_Habilitar.setEnabled(false);
+            this.Btn_Nuevo.setEnabled(false);
+            this.Btn_Actuaizar.setEnabled(false);
+            this.Btn_Eliminar.setEnabled(false);
+            this.Btn_Limpiar.setEnabled(false);
+            this.Btn_Buscar.setEnabled(false);
+            this.Btn_Encargado.setEnabled(false);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
