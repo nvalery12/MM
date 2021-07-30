@@ -185,6 +185,7 @@ public class VEncargado extends javax.swing.JFrame {
         Btn_Limpiar.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Limpiar.setText("Limpiar");
         Btn_Limpiar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 204, 167), 2, true));
+        Btn_Limpiar.setEnabled(false);
         Btn_Limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_LimpiarActionPerformed(evt);
@@ -292,21 +293,36 @@ public class VEncargado extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_NuevoActionPerformed
 
     private void Btn_ActuaizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ActuaizarActionPerformed
-
+        String formatoFecha = ("yyyy/MM/dd");
+        SimpleDateFormat formateo = new SimpleDateFormat(formatoFecha);
+        
+        if (!(this.TF_CIEncargado.getText().equals("")) && !(this.RS_FechaEnc.getDatoFecha().toString().isEmpty())) {
+            Date fechaDate = this.RS_FechaEnc.getDatoFecha();
+            String fechaEmString = formateo.format(fechaDate);
+            
+            String rifag = this.TF_RifAgencia.getText();
+            int cienc = Integer.parseInt(this.TF_CIEncargado.getText());           
+            
+            encargado.actualizarEncargado(rifag, cienc, fechaEmString);
+        }
     }//GEN-LAST:event_Btn_ActuaizarActionPerformed
 
     private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
-
+        if (!(this.TF_RifAgencia.getText().equals(""))) {
+            String rifag = this.TF_RifAgencia.getText();         
+            
+            encargado.eliminarEncargado(rifag);
+        }
     }//GEN-LAST:event_Btn_EliminarActionPerformed
-
-    private void Btn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LimpiarActionPerformed
-
-    }//GEN-LAST:event_Btn_LimpiarActionPerformed
 
     private void Btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AceptarActionPerformed
         new VAgencia().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_AceptarActionPerformed
+
+    private void Btn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LimpiarActionPerformed
+
+    }//GEN-LAST:event_Btn_LimpiarActionPerformed
 
     /**
      * @param args the command line arguments

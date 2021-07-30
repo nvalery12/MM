@@ -105,9 +105,9 @@ public class CRUDEncargado {
             String SQL = "UPDATE encargado SET CIEncargado=? FechaEnc=? WHERE RIFAg=?";
             PreparedStatement consulta = this.conexion.prepareStatement(SQL);
 
-            consulta.setString(1, RIFAg);
+            consulta.setInt(1, CIEnc);
             consulta.setDate(2, fechaDate1);
-            consulta.setInt(3, CIEnc);
+            consulta.setString(3, RIFAg);
             consulta.execute();
             JOptionPane.showMessageDialog(null, "Encargado Actualizado");
 
