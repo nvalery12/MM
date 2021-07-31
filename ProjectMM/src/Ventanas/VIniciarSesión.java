@@ -45,10 +45,10 @@ public class VIniciarSesión extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         TF_Cedula = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        TF_Contrasena = new javax.swing.JTextField();
         Btn_Regresar = new javax.swing.JButton();
         Btn_Ingresar = new javax.swing.JButton();
         Btn_OlvidoCont = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,15 +86,6 @@ public class VIniciarSesión extends javax.swing.JFrame {
         jLabel7.setText("Contraseña");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 300, 35));
 
-        TF_Contrasena.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        TF_Contrasena.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
-        TF_Contrasena.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_ContrasenaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(TF_Contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 400, 35));
-
         Btn_Regresar.setBackground(new java.awt.Color(255, 255, 255));
         Btn_Regresar.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         Btn_Regresar.setForeground(new java.awt.Color(36, 204, 167));
@@ -126,6 +117,10 @@ public class VIniciarSesión extends javax.swing.JFrame {
         Btn_OlvidoCont.setContentAreaFilled(false);
         getContentPane().add(Btn_OlvidoCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 330, 40));
 
+        jPasswordField1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 400, 35));
+
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
@@ -136,10 +131,6 @@ public class VIniciarSesión extends javax.swing.JFrame {
     private void TF_CedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_CedulaActionPerformed
-
-    private void TF_ContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_ContrasenaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_ContrasenaActionPerformed
 
     private void Btn_IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_IngresarActionPerformed
         if(!(this.TF_Cedula.getText().equals(""))) {            
@@ -196,11 +187,11 @@ public class VIniciarSesión extends javax.swing.JFrame {
     private javax.swing.JButton Btn_OlvidoCont;
     private javax.swing.JButton Btn_Regresar;
     private javax.swing.JTextField TF_Cedula;
-    private javax.swing.JTextField TF_Contrasena;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,10 @@
  */
 package Ventanas;
 
+import CRUD.CRUDServicios;
+import Controlador.Conexion;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author angel
@@ -14,8 +18,28 @@ public class VServicios extends javax.swing.JFrame {
     /**
      * Creates new form VServicios
      */
+    Conexion conexion = new Conexion();
+    CRUDServicios datos = new CRUDServicios(conexion.conectar());
+    int Type;
     public VServicios() {
         initComponents();
+    }
+    
+    public VServicios(String agencia, int tipo) {
+        initComponents();
+        Type = tipo;
+
+        if (tipo == 2) {
+            this.TF_Agencia.setText(agencia);
+        }
+        if (tipo == 3) {
+            this.TF_Agencia.setText(agencia);
+            this.Btn_Nuevo.setEnabled(false);
+            this.Btn_Actvidades1.setEnabled(false);
+            this.Btn_Eliminar.setEnabled(false);
+            this.Btn_Habilitar.setEnabled(false);
+            this.Btn_Limpiar.setEnabled(false);
+        }
     }
 
     /**
@@ -41,10 +65,9 @@ public class VServicios extends javax.swing.JFrame {
         Btn_Actividades = new javax.swing.JButton();
         Perfiles = new javax.swing.JButton();
         TF_TiempoR = new javax.swing.JTextField();
-        TF_RifAg = new javax.swing.JTextField();
+        TF_Codigo = new javax.swing.JTextField();
         TF_Nombre = new javax.swing.JTextField();
         TF_Desc = new javax.swing.JTextField();
-        Btn_Actvidades = new javax.swing.JButton();
         Btn_BuscarEmp = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -57,11 +80,15 @@ public class VServicios extends javax.swing.JFrame {
         Btn_Limpiar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        TF_Direccion1 = new javax.swing.JTextField();
+        TF_Empleado = new javax.swing.JTextField();
         Btn_BuscarCod = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         TF_CostoServ = new javax.swing.JTextField();
         Btn_Actvidades1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        TF_Agencia = new javax.swing.JTextField();
+        TF_Capacidad = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -208,17 +235,17 @@ public class VServicios extends javax.swing.JFrame {
                 TF_TiempoRActionPerformed(evt);
             }
         });
-        getContentPane().add(TF_TiempoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 400, 35));
+        getContentPane().add(TF_TiempoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 400, 35));
 
-        TF_RifAg.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        TF_RifAg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
-        TF_RifAg.setEnabled(false);
-        TF_RifAg.addActionListener(new java.awt.event.ActionListener() {
+        TF_Codigo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Codigo.setEnabled(false);
+        TF_Codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_RifAgActionPerformed(evt);
+                TF_CodigoActionPerformed(evt);
             }
         });
-        getContentPane().add(TF_RifAg, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 360, 35));
+        getContentPane().add(TF_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 360, 35));
 
         TF_Nombre.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         TF_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
@@ -238,20 +265,7 @@ public class VServicios extends javax.swing.JFrame {
                 TF_DescActionPerformed(evt);
             }
         });
-        getContentPane().add(TF_Desc, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 400, 35));
-
-        Btn_Actvidades.setBackground(new java.awt.Color(36, 204, 167));
-        Btn_Actvidades.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
-        Btn_Actvidades.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Actvidades.setText("Afiliar a Agencia");
-        Btn_Actvidades.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Btn_Actvidades.setBorderPainted(false);
-        Btn_Actvidades.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_ActvidadesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Btn_Actvidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 140, 40));
+        getContentPane().add(TF_Desc, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 400, 35));
 
         Btn_BuscarEmp.setBackground(new java.awt.Color(255, 255, 255));
         Btn_BuscarEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/lupa(1).png"))); // NOI18N
@@ -263,12 +277,12 @@ public class VServicios extends javax.swing.JFrame {
                 Btn_BuscarEmpActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_BuscarEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 210, 30, 30));
+        getContentPane().add(Btn_BuscarEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 220, 30, 30));
 
         jLabel4.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(36, 204, 167));
         jLabel4.setText("Tiempo para reservar");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 300, 35));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 300, 35));
 
         jLabel6.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(36, 204, 167));
@@ -278,7 +292,7 @@ public class VServicios extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(36, 204, 167));
         jLabel11.setText("Descripción");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 300, 35));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 300, 35));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2), "Opciones", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Helvetica", 1, 14), new java.awt.Color(36, 204, 167))); // NOI18N
         jPanel3.setOpaque(false);
@@ -373,22 +387,22 @@ public class VServicios extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(36, 204, 167));
         jLabel8.setText("Codigo");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 300, 35));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 300, 35));
 
         jLabel9.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(36, 204, 167));
         jLabel9.setText("Empleado");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 300, 35));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 300, 35));
 
-        TF_Direccion1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        TF_Direccion1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
-        TF_Direccion1.setEnabled(false);
-        TF_Direccion1.addActionListener(new java.awt.event.ActionListener() {
+        TF_Empleado.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Empleado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Empleado.setEnabled(false);
+        TF_Empleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_Direccion1ActionPerformed(evt);
+                TF_EmpleadoActionPerformed(evt);
             }
         });
-        getContentPane().add(TF_Direccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 360, 35));
+        getContentPane().add(TF_Empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 360, 35));
 
         Btn_BuscarCod.setBackground(new java.awt.Color(255, 255, 255));
         Btn_BuscarCod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/lupa(1).png"))); // NOI18N
@@ -400,12 +414,12 @@ public class VServicios extends javax.swing.JFrame {
                 Btn_BuscarCodActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_BuscarCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 150, 30, 30));
+        getContentPane().add(Btn_BuscarCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 170, 30, 30));
 
         jLabel7.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(36, 204, 167));
         jLabel7.setText("Costo del Servicio");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 300, 35));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 300, 35));
 
         TF_CostoServ.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         TF_CostoServ.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
@@ -415,7 +429,7 @@ public class VServicios extends javax.swing.JFrame {
                 TF_CostoServActionPerformed(evt);
             }
         });
-        getContentPane().add(TF_CostoServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 400, 35));
+        getContentPane().add(TF_CostoServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 400, 35));
 
         Btn_Actvidades1.setBackground(new java.awt.Color(36, 204, 167));
         Btn_Actvidades1.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
@@ -428,7 +442,37 @@ public class VServicios extends javax.swing.JFrame {
                 Btn_Actvidades1ActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Actvidades1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 510, 140, 40));
+        getContentPane().add(Btn_Actvidades1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 530, 140, 40));
+
+        jLabel10.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel10.setText("Agencia");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 300, 35));
+
+        TF_Agencia.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Agencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Agencia.setEnabled(false);
+        TF_Agencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_AgenciaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Agencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 400, 35));
+
+        TF_Capacidad.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        TF_Capacidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 3));
+        TF_Capacidad.setEnabled(false);
+        TF_Capacidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_CapacidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TF_Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 400, 35));
+
+        jLabel12.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(36, 204, 167));
+        jLabel12.setText("Capacidad");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 300, 35));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 720));
@@ -453,9 +497,9 @@ public class VServicios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_TiempoRActionPerformed
 
-    private void TF_RifAgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_RifAgActionPerformed
+    private void TF_CodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_RifAgActionPerformed
+    }//GEN-LAST:event_TF_CodigoActionPerformed
 
     private void TF_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NombreActionPerformed
         // TODO add your handling code here:
@@ -465,106 +509,107 @@ public class VServicios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_DescActionPerformed
 
-    private void Btn_ActvidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ActvidadesActionPerformed
-        /*if (!(this.TF_RifAg.getText().equals(""))) {
-
-            String[] datosAr = ag.buscarAgencia(TF_RifAg.getText());
-
-            this.TF_Nombre.setText(datosAr[0]);
-            this.TF_Desc.setText(datosAr[1]);
-            this.TF_TiempoR.setText(datosAr[2]);
-
-            if (!(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals(""))) {
-                new VEncargado(TF_RifAg.getText()).setVisible(true);
-                this.dispose();
-            }
-            else {
-                JOptionPane.showMessageDialog(null, "Agencia no encontrada. Por favor, introduzca una agencia registrada o registre una nueva", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, introduzca el RIF","Advertencia", JOptionPane.WARNING_MESSAGE);
-        }*/
-    }//GEN-LAST:event_Btn_ActvidadesActionPerformed
-
     private void Btn_BuscarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BuscarEmpActionPerformed
-        /*if (!(this.TF_RifAg.getText().equals(""))) {
-
-            String[] datosAr = ag.buscarAgencia(TF_RifAg.getText());
-
-            this.TF_Nombre.setText(datosAr[0]);
-            this.TF_Desc.setText(datosAr[1]);
-            this.TF_TiempoR.setText(datosAr[2]);
-
-        }else {
-            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        if (!(this.TF_Empleado.getText().equals(""))) {
+            String nombencargado = this.datos.buscarEmpleado(Integer.parseInt(this.TF_Empleado.getText()));
+            if ((nombencargado.equals(""))) {
+                JOptionPane.showMessageDialog(null, "Cedula no encontrada. Por favor, ingrese una cedula registrada o registre un nuevo empleado", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                this.TF_Empleado.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Empleado: "+nombencargado+" encontrado","Busqueda exitosa", JOptionPane.INFORMATION_MESSAGE);
+                this.TF_Empleado.setEnabled(false);
+                this.Btn_Nuevo.setEnabled(true);
+            }
         }
-        if (!(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals(""))) {
-            this.TF_RifAg.setEnabled(false);
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Registro no encontrado","Advertencia", JOptionPane.WARNING_MESSAGE);
-        }*/
     }//GEN-LAST:event_Btn_BuscarEmpActionPerformed
 
     private void Btn_HabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HabilitarActionPerformed
-
+        if(Type == 2) {
+            this.TF_Codigo.setEnabled(true);
+            this.TF_Empleado.setEnabled(true);
+            this.TF_Nombre.setEnabled(true);
+            this.TF_Desc.setEnabled(true);
+            this.TF_TiempoR.setEnabled(true);
+            this.TF_CostoServ.setEnabled(true);
+            this.TF_Capacidad.setEnabled(true);
+        }
     }//GEN-LAST:event_Btn_HabilitarActionPerformed
 
     private void Btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_NuevoActionPerformed
-        /*if (!(this.TF_RifAg.getText().equals("")) && !(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals(""))) {
-
-            String RIF = this.TF_RifAg.getText();
-            String RazonS = this.TF_Nombre.getText();
-            String Ciudad = this.TF_Desc.getText();
-            String Direccion = this.TF_TiempoR.getText();
-
-            ag.nuevoAgencia(RIF, RazonS, Ciudad, Direccion);
-
-        }else {
-            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }*/
+        if (!(this.TF_Codigo.getText().equals("")) && !(this.TF_Empleado.getText().equals("")) && !(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals("")) && !(this.TF_CostoServ.getText().equals("")) && !(this.TF_Capacidad.getText().equals(""))){
+            
+            String CodServ = this.TF_Codigo.getText();
+            String RIFAg = this.TF_Agencia.getText();
+            int CIEmp = Integer.parseInt(this.TF_Empleado.getText());
+            String NombServ = this.TF_Nombre.getText();
+            String DescServ = this.TF_Desc.getText();
+            String TiempoResv = this.TF_TiempoR.getText();
+            float MontoServ = Float.parseFloat(this.TF_CostoServ.getText());
+            int CapacServ = Integer.parseInt(this.TF_Capacidad.getText());
+            
+            datos.nuevoServicio(CodServ, RIFAg, CIEmp, NombServ, DescServ, TiempoResv, MontoServ, CapacServ);
+        }
+            
     }//GEN-LAST:event_Btn_NuevoActionPerformed
 
     private void Btn_ActuaizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ActuaizarActionPerformed
-        /*if (!(this.TF_RifAg.getText().equals("")) && !(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals(""))) {
-
-            String RIF = this.TF_RifAg.getText();
-            String RazonS = this.TF_Nombre.getText();
-            String Ciudad = this.TF_Desc.getText();
-            String Direccion = this.TF_TiempoR.getText();
-
-            ag.actualizarAgencia(RIF, RazonS, Ciudad, Direccion);
-
-        }else {
-            JOptionPane.showMessageDialog(null, "Por favor rellene los campos faltantes", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }*/
+        if (!(this.TF_Agencia.getText().equals("")) && !(this.TF_Empleado.getText().equals("")) && !(this.TF_Nombre.getText().equals("")) && !(this.TF_Desc.getText().equals("")) && !(this.TF_TiempoR.getText().equals("")) && !(this.TF_CostoServ.getText().equals("")) && !(this.TF_Capacidad.getText().equals(""))){
+            
+            String CodServ = this.TF_Codigo.getText();
+            String RIFAg = this.TF_Agencia.getText();
+            int CIEmp = Integer.parseInt(this.TF_Empleado.getText());
+            String NombServ = this.TF_Nombre.getText();
+            String DescServ = this.TF_Desc.getText();
+            String TiempoResv = this.TF_TiempoR.getText();
+            float MontoServ = Float.parseFloat(this.TF_CostoServ.getText());
+            int CapacServ = Integer.parseInt(this.TF_Capacidad.getText());
+            
+            datos.actualizarServicio(CodServ, RIFAg, CIEmp, NombServ, DescServ, TiempoResv, MontoServ, CapacServ);
+        }
     }//GEN-LAST:event_Btn_ActuaizarActionPerformed
 
     private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
-        /*if (!(this.TF_RifAg.getText().equals(""))) {
-            String RIF = this.TF_RifAg.getText();
-
-            ag.eliminarAgencia(RIF);
-        }*/
+        if (!(this.TF_Agencia.getText().equals(""))) {
+            String CodServ = this.TF_Codigo.getText();
+            datos.eliminarServicio(CodServ);
+        }
     }//GEN-LAST:event_Btn_EliminarActionPerformed
 
     private void Btn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LimpiarActionPerformed
-        this.TF_RifAg.setText("");
+        this.TF_Codigo.setText("");
         this.TF_Nombre.setText("");
         this.TF_Desc.setText("");
         this.TF_TiempoR.setText("");
-        this.TF_RifAg.setEnabled(false);
+        this.TF_Codigo.setEnabled(false);
         this.TF_Nombre.setEnabled(false);
         this.TF_Desc.setEnabled(false);
         this.TF_TiempoR.setEnabled(false);
     }//GEN-LAST:event_Btn_LimpiarActionPerformed
 
-    private void TF_Direccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_Direccion1ActionPerformed
+    private void TF_EmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_EmpleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_Direccion1ActionPerformed
+    }//GEN-LAST:event_TF_EmpleadoActionPerformed
 
     private void Btn_BuscarCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BuscarCodActionPerformed
-        // TODO add your handling code here:
+        
+        if (Type == 1) {
+            String[] datos1 = datos.buscarServicio(this.TF_CostoServ.getText());
+            this.TF_Agencia.setText(datos1[0]);
+            this.TF_Empleado.setText(datos1[1]);
+            this.TF_Nombre.setText(datos1[2]);
+            this.TF_Desc.setText(datos1[3]);
+            this.TF_TiempoR.setText(datos1[4]);
+            this.TF_CostoServ.setText(datos1[5]);
+            this.TF_Capacidad.setText(datos1[6]);
+        } else {
+            String[] datos1 = datos.buscarServicioEnc(this.TF_CostoServ.getText(), this.TF_Agencia.getText());
+            this.TF_Empleado.setText(datos1[0]);
+            this.TF_Nombre.setText(datos1[1]);
+            this.TF_Desc.setText(datos1[2]);
+            this.TF_TiempoR.setText(datos1[3]);
+            this.TF_CostoServ.setText(datos1[4]);
+            this.TF_Capacidad.setText(datos1[5]);
+        }
     }//GEN-LAST:event_Btn_BuscarCodActionPerformed
 
     private void TF_CostoServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CostoServActionPerformed
@@ -574,6 +619,14 @@ public class VServicios extends javax.swing.JFrame {
     private void Btn_Actvidades1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Actvidades1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_Actvidades1ActionPerformed
+
+    private void TF_AgenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_AgenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_AgenciaActionPerformed
+
+    private void TF_CapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CapacidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_CapacidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -613,7 +666,6 @@ public class VServicios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Actividades;
     private javax.swing.JButton Btn_Actuaizar;
-    private javax.swing.JButton Btn_Actvidades;
     private javax.swing.JButton Btn_Actvidades1;
     private javax.swing.JButton Btn_Agencias;
     private javax.swing.JButton Btn_BuscarCod;
@@ -630,14 +682,18 @@ public class VServicios extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Servicios;
     private javax.swing.JButton Btn_Vehiculos;
     private javax.swing.JButton Perfiles;
+    private javax.swing.JTextField TF_Agencia;
+    private javax.swing.JTextField TF_Capacidad;
+    private javax.swing.JTextField TF_Codigo;
     private javax.swing.JTextField TF_CostoServ;
     private javax.swing.JTextField TF_Desc;
-    private javax.swing.JTextField TF_Direccion1;
+    private javax.swing.JTextField TF_Empleado;
     private javax.swing.JTextField TF_Nombre;
-    private javax.swing.JTextField TF_RifAg;
     private javax.swing.JTextField TF_TiempoR;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

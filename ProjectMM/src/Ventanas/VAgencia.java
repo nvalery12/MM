@@ -21,12 +21,16 @@ public class VAgencia extends javax.swing.JFrame {
     /**
      * Creates new form VAgencia
      */
+    int Type;
+    String agency;
     public VAgencia() {
         initComponents();
     }
     
     public VAgencia(String agencia, int tipo) {
         initComponents();
+        Type = tipo;
+        agency = agencia;
         if (tipo==3 || tipo ==2) {
             String[] agenciaa = ag.buscarAgencia(agencia);
             
@@ -407,8 +411,14 @@ public class VAgencia extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_AgenciasActionPerformed
 
     private void Btn_ServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ServiciosActionPerformed
-        new VServicios().setVisible(true);
-        this.dispose();
+        if(Type == 2 || Type == 3) {
+            new VServicios(agency,Type).setVisible(true);
+            this.dispose();
+        } else if (Type == 1) {
+            new VServicios().setVisible(true);
+            this.dispose();
+        }
+            
     }//GEN-LAST:event_Btn_ServiciosActionPerformed
 
     private void Btn_OrdenServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_OrdenServiciosActionPerformed

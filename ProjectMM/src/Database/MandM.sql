@@ -83,17 +83,23 @@ ON DELETE NO ACTION ON UPDATE CASCADE;
 
 CREATE TABLE servicios (
 	CodServ			dom_codigo,
+        RIFAg			dom_rif,
 	CIEmp			dom_cedula,
 	NombServ		dom_nombre,
 	DescServ		dom_descripcion,
 	TiempoResv		VARCHAR(50),
 	MontoServ		dom_monto
+	CapacServ		INTEGER				NOT NULL
 );
 ALTER TABLE servicios ADD CONSTRAINT PK_servicios_CodServ PRIMARY KEY(CodServ);
+ALTER TABLE servicios ADD CONSTRAINT FK_servicios_RIFAg
+FOREIGN KEY (RIFAg) REFERENCES agencias(RIFAg)
+ON DELETE NO ACTION ON UPDATE CASCADE;
 ALTER TABLE servicios ADD CONSTRAINT FK_servicios_CIEmp
 FOREIGN KEY (CIEmp) REFERENCES empleados(CIEmp)
 ON DELETE NO ACTION ON UPDATE CASCADE;
 ALTER TABLE servicios ADD CONSTRAINT CK_servicios_Monto CHECK(MontoServ>0);
+ALTER TABLE servicios ADD CONSTRAINT CK_servicios_CapacServo CHECK(CapacServ>0);
 
 CREATE TABLE modalidadpago (
 	TipoPago		tipodePago
