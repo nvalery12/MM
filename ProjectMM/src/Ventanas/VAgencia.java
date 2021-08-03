@@ -69,7 +69,6 @@ public class VAgencia extends javax.swing.JFrame {
         Btn_OrdenServicios = new javax.swing.JButton();
         Btn_Facturas = new javax.swing.JButton();
         Btn_Servicios = new javax.swing.JButton();
-        Btn_Actividades = new javax.swing.JButton();
         Perfiles = new javax.swing.JButton();
         TF_Direccion = new javax.swing.JTextField();
         TF_RifAg = new javax.swing.JTextField();
@@ -139,6 +138,11 @@ public class VAgencia extends javax.swing.JFrame {
         Btn_Productos.setForeground(new java.awt.Color(36, 204, 167));
         Btn_Productos.setText("Productos");
         Btn_Productos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
+        Btn_Productos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ProductosActionPerformed(evt);
+            }
+        });
 
         Btn_OrdenServicios.setBackground(new java.awt.Color(255, 255, 255));
         Btn_OrdenServicios.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
@@ -168,12 +172,6 @@ public class VAgencia extends javax.swing.JFrame {
             }
         });
 
-        Btn_Actividades.setBackground(new java.awt.Color(255, 255, 255));
-        Btn_Actividades.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
-        Btn_Actividades.setForeground(new java.awt.Color(36, 204, 167));
-        Btn_Actividades.setText("Actividades");
-        Btn_Actividades.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 204, 167), 2));
-
         Perfiles.setBackground(new java.awt.Color(255, 0, 51));
         Perfiles.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
         Perfiles.setForeground(new java.awt.Color(255, 255, 255));
@@ -193,7 +191,6 @@ public class VAgencia extends javax.swing.JFrame {
             .addComponent(Btn_OrdenServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Btn_Facturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Btn_Servicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Btn_Actividades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Perfiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,23 +199,21 @@ public class VAgencia extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Btn_Agencias, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Btn_Servicios, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Btn_Actividades, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Btn_Vehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Btn_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Btn_OrdenServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Btn_Facturas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Perfiles, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -538,6 +533,11 @@ public class VAgencia extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Btn_EncargadoActionPerformed
 
+    private void Btn_ProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ProductosActionPerformed
+        new VProductos(agency,Type).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Btn_ProductosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -574,7 +574,6 @@ public class VAgencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_Actividades;
     private javax.swing.JButton Btn_Actuaizar;
     private javax.swing.JButton Btn_Agencias;
     private javax.swing.JButton Btn_Buscar;

@@ -235,7 +235,7 @@ public class VEncargado extends javax.swing.JFrame {
                 Btn_AceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 140, 40));
+        getContentPane().add(Btn_Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, 140, 40));
 
         RS_FechaEnc.setColorBackground(new java.awt.Color(36, 204, 167));
         RS_FechaEnc.setColorButtonHover(new java.awt.Color(36, 204, 167));
