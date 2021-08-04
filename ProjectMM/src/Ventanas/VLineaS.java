@@ -29,6 +29,14 @@ public class VLineaS extends javax.swing.JFrame {
      */
     public VLineaS() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent ev) {
+                dispose();
+        }
+        });
     }
     
     public VLineaS(String agencia, int tipo) {
